@@ -17,6 +17,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+# {id} => Comodin
 Route::get('/posts/{id}', function($id){
+    dd($id); #dump die => Funcion para depurar, volca el contenido de una variable al navegador
+    # Da un esto 500 así que lo que esta despues de esto, no renderizará
+
+    ddd($id); # DEPURAN EL CODIGO
+
+
     return response('Post ' . $id);
-});
+})-> where('id','[0-9]+'); 
+# where(...) Aqui le estoy dando una restricción, donde solo acepta valores del 0 al 9
