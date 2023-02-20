@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,3 +29,9 @@ Route::get('/posts/{id}', function($id){
     return response('Post ' . $id);
 })-> where('id','[0-9]+'); 
 # where(...) Aqui le estoy dando una restricción, donde solo acepta valores del 0 al 9
+
+
+# REQUEST & QUERY PARAMS
+Route::get('/search', function(Request $request){
+    dd($request -> name);
+});
